@@ -26,6 +26,8 @@ function getComputerChoice() {
     
 }
 
+console.log(getComputerChoice)
+
 //convert getComputerChoice function to variable in string format
 const computerSelection = getComputerChoice().toString();
 
@@ -99,7 +101,7 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-//console.log(playRound(playerSelection, computerSelection));
+console.log(playRound(playerSelection, computerSelection));
 
 
 
@@ -134,5 +136,3 @@ function game() {
     
     
 }
-
-//game();
