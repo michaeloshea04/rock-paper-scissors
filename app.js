@@ -26,10 +26,6 @@ function getComputerChoice() {
     
 }
 
-//hard coded player selection
-//let playerSelection = prompt("Enter your choice: rock, paper or scissors.");
-const playerSelection = "rock";
-
 //convert getComputerChoice function to variable in string format
 const computerSelection = getComputerChoice().toString();
 
@@ -49,71 +45,94 @@ function compareString(arg1, arg2) {
     }
 }
 
+//create player and computer scores
+let playerScore = 0;
+let computerScore = 0;
+
 //function containing logic about the paper, scissors, rock game
-//Maybe the return type of this function 
 function playRound(playerSelection, computerSelection) {
     result = "";   
 
     if((compareString(playerSelection, "rock") == 0)&&(compareString(computerSelection, "scissors") == 0))
     {
         result = `You win! ${playerSelection} beats ${computerSelection}.`;
-        playerScore += 1;
-        return result;
+        console.log(result);
+        return playerScore += 1;
+        
     }
     else if((compareString(playerSelection, "rock") == 0)&&(compareString(computerSelection, "paper") == 0))
     {
         result = `You lose! ${computerSelection} beats ${playerSelection}.`;
-        computerScore += 1;
-        return result;
+        console.log(result);
+        return computerScore += 1;
     }
     else if((compareString(playerSelection, "paper") == 0)&&(compareString(computerSelection, "rock") == 0))
     {
         result = `You win! ${playerSelection} beats ${computerSelection}.`;
-        playerScore += 1;
-        return result;
+        console.log(result);
+        return playerScore += 1;
     }
     else if((compareString(playerSelection, "paper") == 0)&&(compareString(computerSelection, "scissors") == 0))
     {
         result = `You lose! ${computerSelection} beats ${playerSelection}.`;
-        computerScore += 1;
-        return result;
+        console.log(result);
+        return computerScore += 1;
     }
     else if((compareString(playerSelection, "scissors") == 0)&&(compareString(computerSelection, "paper") == 0))
     {
-        result = `You win! ${playerSelection} beats ${computerSelection}.`;
-        playerScore += 1;
-        return result;
+        result = `You win! ${playerSelection} beats ${computerSelection}.`;        
+        console.log(result);
+        return playerScore += 1;
     }
     else if((compareString(playerSelection, "scissors") == 0)&&(compareString(computerSelection, "rock") == 0))
     {
         result = `You lose! ${computerSelection} beats ${playerSelection}.`;
-        computerScore += 1;
-        return result;
+        console.log(result);        
+        return computerScore += 1;
     }
     else
     {
         result = `It's a draw! ${computerSelection} draws with ${playerSelection}.`;
-        return result;
+        console.log(result);
+        return computerScore +=0;  
     }
 
 }
 
 //console.log(playRound(playerSelection, computerSelection));
 
-function game() {
-    playerScore = 0;
-    computerScore = 0;
+
+
+function game() {   
 
     for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Enter your choice: rock, paper or scissors.");
         console.log(`Round ${i+1}`);
         console.log(`Player selection = ${playerSelection}`);
         console.log(`Computer selection = ${computerSelection}`);
-        console.log(playRound(playerSelection, computerSelection));
-        console.log(playerScore);
+        playRound(playerSelection, computerSelection);
+        console.log(`Player Score: ${playerScore} - Computer Score: ${computerScore}`); 
+        console.log("*******************************************************************")       
 
+    }
+
+    if(playerScore > computerScore)
+    {
+        console.log("Player wins!");
+        console.log(`Player Score: ${playerScore} - Computer Score: ${computerScore}`); 
+    }
+    else if(playerScore < computerScore)
+    {
+        console.log("Computer wins!")
+        console.log(`Player Score: ${playerScore} - Computer Score: ${computerScore}`); 
+    }
+    else
+    {
+        console.log("It's a draw.")
+        console.log(`Player Score: ${playerScore} - Computer Score: ${computerScore}`); 
     }
     
     
 }
 
-game();
+//game();
