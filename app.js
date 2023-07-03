@@ -22,11 +22,12 @@ function getComputerChoice() {
     {
         result = "Something went wrong"
         return result
-    }          
+    }
+    alert(result)          
     
 }
 
-console.log(getComputerChoice)
+//alert(`Computer chooses ${getComputerChoice()}`);
 
 //convert getComputerChoice function to variable in string format
 const computerSelection = getComputerChoice().toString();
@@ -51,9 +52,16 @@ function compareString(arg1, arg2) {
 let playerScore = 0;
 let computerScore = 0;
 
+//accept playerSelection input
+//let playerSelection = prompt("Tell me what you got!!");
+
+//alert(`Player selection is ${playerSelection}`);
+
 //function containing logic about the paper, scissors, rock game
 function playRound(playerSelection, computerSelection) {
-    result = "";   
+    result = "";
+    alert(`Player selected ${playerSelection}`);
+    alert(`Computer selected ${computerSelection}`);   
 
     if((compareString(playerSelection, "rock") == 0)&&(compareString(computerSelection, "scissors") == 0))
     {
@@ -101,7 +109,7 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-console.log(playRound(playerSelection, computerSelection));
+//console.log(playRound(playerSelection, computerSelection));
 
 
 
@@ -136,3 +144,5 @@ function game() {
     
     
 }
+
+//console.log(game());
