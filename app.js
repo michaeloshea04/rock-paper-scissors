@@ -146,3 +146,20 @@ function game() {
 }
 
 //console.log(game());
+
+
+
+  let btn1 = document.querySelector('#btn_1');
+  btn1.addEventListener('click', () =>{
+    document.getElementById("displayResult").innerHTML = "You chose Rock"
+  });
+
+  let btn2 = document.querySelector('#btn_2');
+  btn2.addEventListener('click', () =>{
+    document.getElementById("displayResult").innerHTML = "You chose Paper"
+  });
+
+  let btn3 = document.querySelector('#btn_3');
+  btn3.addEventListener('click', () =>{
+    document.getElementById("displayResult").innerHTML = "You chose Scissors"
+  });
