@@ -59,22 +59,19 @@ let computerScore = 0;
 //accept playerSelection input
 let btn1 = document.getElementById('btn_1');
   btn1.addEventListener('click', () =>{
-    document.getElementById("displayResult").innerHTML = `You chose ${playerSelection}` 
-  });      
+    playRound('rock',computerSelection)
+  });
 
 let btn2 = document.querySelector('#btn_2');
   btn2.addEventListener('click', () =>{
-    let playerSelection = "paper"
-    document.getElementById("displayResult").innerHTML = `You chose ${playerSelection}`
+    playRound('paper',computerSelection)
   });
 
   let btn3 = document.querySelector('#btn_3');
   btn3.addEventListener('click', () =>{
-    let playerSelection = "scissors"
-    document.getElementById("displayResult").innerHTML = `You chose ${playerSelection}`
+    playRound('scissors',computerSelection)
   });
 
-alert(`Player selection is ${playerSelection}`);
 
 //function containing logic about the paper, scissors, rock game
 function playRound(playerSelection, computerSelection) {
@@ -86,6 +83,7 @@ function playRound(playerSelection, computerSelection) {
     {
         result = `You win! ${playerSelection} beats ${computerSelection}.`;
         console.log(result);
+        alert(result);
         return playerScore += 1;
         
     }
@@ -93,42 +91,48 @@ function playRound(playerSelection, computerSelection) {
     {
         result = `You lose! ${computerSelection} beats ${playerSelection}.`;
         console.log(result);
+        alert(result);
         return computerScore += 1;
     }
     else if((compareString(playerSelection, "paper") == 0)&&(compareString(computerSelection, "rock") == 0))
     {
         result = `You win! ${playerSelection} beats ${computerSelection}.`;
         console.log(result);
+        alert(result);
         return playerScore += 1;
     }
     else if((compareString(playerSelection, "paper") == 0)&&(compareString(computerSelection, "scissors") == 0))
     {
         result = `You lose! ${computerSelection} beats ${playerSelection}.`;
         console.log(result);
+        alert(result);
         return computerScore += 1;
     }
     else if((compareString(playerSelection, "scissors") == 0)&&(compareString(computerSelection, "paper") == 0))
     {
         result = `You win! ${playerSelection} beats ${computerSelection}.`;        
         console.log(result);
+        alert(result);
         return playerScore += 1;
     }
     else if((compareString(playerSelection, "scissors") == 0)&&(compareString(computerSelection, "rock") == 0))
     {
         result = `You lose! ${computerSelection} beats ${playerSelection}.`;
-        console.log(result);        
+        console.log(result);
+        alert(result);        
         return computerScore += 1;
     }
     else
     {
         result = `It's a draw! ${computerSelection} draws with ${playerSelection}.`;
         console.log(result);
+        alert(result);
         return computerScore +=0;  
     }
 
 }
 
-console.log(playRound(playerSelection, computerSelection));
+//console.log(playRound(playerSelection, computerSelection));
 
 
 //function which plays 5 rounds.
