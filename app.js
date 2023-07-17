@@ -1,3 +1,8 @@
+//create player and computer selection variables
+let playerSelection;
+let computerSelection;
+
+
 
 //function which randomly selects computer choice
 function getComputerChoice() {
@@ -27,10 +32,9 @@ function getComputerChoice() {
     
 }
 
-//alert(`Computer chooses ${getComputerChoice()}`);
 
 //convert getComputerChoice function to variable in string format
-const computerSelection = getComputerChoice().toString();
+computerSelection = getComputerChoice().toString();
 
 //helper function to check if two strings are equal
 function compareString(arg1, arg2) {
@@ -53,9 +57,24 @@ let playerScore = 0;
 let computerScore = 0;
 
 //accept playerSelection input
-//let playerSelection = prompt("Tell me what you got!!");
+let btn1 = document.getElementById('btn_1');
+  btn1.addEventListener('click', () =>{
+    document.getElementById("displayResult").innerHTML = `You chose ${playerSelection}` 
+  });      
 
-//alert(`Player selection is ${playerSelection}`);
+let btn2 = document.querySelector('#btn_2');
+  btn2.addEventListener('click', () =>{
+    let playerSelection = "paper"
+    document.getElementById("displayResult").innerHTML = `You chose ${playerSelection}`
+  });
+
+  let btn3 = document.querySelector('#btn_3');
+  btn3.addEventListener('click', () =>{
+    let playerSelection = "scissors"
+    document.getElementById("displayResult").innerHTML = `You chose ${playerSelection}`
+  });
+
+alert(`Player selection is ${playerSelection}`);
 
 //function containing logic about the paper, scissors, rock game
 function playRound(playerSelection, computerSelection) {
@@ -109,10 +128,10 @@ function playRound(playerSelection, computerSelection) {
 
 }
 
-//console.log(playRound(playerSelection, computerSelection));
+console.log(playRound(playerSelection, computerSelection));
 
 
-
+//function which plays 5 rounds.
 function game() {   
 
     for (let i = 0; i < 5; i++) {
@@ -149,17 +168,6 @@ function game() {
 
 
 
-  let btn1 = document.querySelector('#btn_1');
-  btn1.addEventListener('click', () =>{
-    document.getElementById("displayResult").innerHTML = "You chose Rock"
-  });
+  
 
-  let btn2 = document.querySelector('#btn_2');
-  btn2.addEventListener('click', () =>{
-    document.getElementById("displayResult").innerHTML = "You chose Paper"
-  });
-
-  let btn3 = document.querySelector('#btn_3');
-  btn3.addEventListener('click', () =>{
-    document.getElementById("displayResult").innerHTML = "You chose Scissors"
-  });
+  
