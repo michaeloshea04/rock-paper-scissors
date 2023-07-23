@@ -52,9 +52,20 @@ function compareString(arg1, arg2) {
     }
 }
 
-//create player and computer scores
+function disableButtons() {
+    btn1(elem => {
+        elem.disabled = true
+    })
+}
+
+//create game variables
+let round = 0;
 let playerScore = 0;
 let computerScore = 0;
+
+// Get references to the buttons and result display area
+
+
 
 //accept playerSelection input
 let btn1 = document.getElementById('btn_1');
@@ -75,64 +86,86 @@ let btn2 = document.querySelector('#btn_2');
 
 //function containing logic about the paper, scissors, rock game
 function playRound(playerSelection, computerSelection) {
-    result = "";
-    alert(`Player selected ${playerSelection}`);
-    alert(`Computer selected ${computerSelection}`);   
+    let result;
+    let round = 0;
+    let displayResult = document.getElementById("displayResult"); 
+    let displayScore = document.getElementById("displayScore");
+    let displayRound = document.getElementById("displayRound");  
 
     if((compareString(playerSelection, "rock") == 0)&&(compareString(computerSelection, "scissors") == 0))
     {
         result = `You win! ${playerSelection} beats ${computerSelection}.`;
-        console.log(result);
-        alert(result);
-        return playerScore += 1;
+        playerScore ++;
+        if(playerScore == 5){
+            result = `You won the game!`;
+            disableButtons();
+        }
         
     }
     else if((compareString(playerSelection, "rock") == 0)&&(compareString(computerSelection, "paper") == 0))
     {
         result = `You lose! ${computerSelection} beats ${playerSelection}.`;
-        console.log(result);
-        alert(result);
-        return computerScore += 1;
+        computerScore ++;
+        if(computerScore == 5){
+            result = `You lost the game!  Computer wins.`;
+            disableButtons();
+        }
     }
     else if((compareString(playerSelection, "paper") == 0)&&(compareString(computerSelection, "rock") == 0))
     {
         result = `You win! ${playerSelection} beats ${computerSelection}.`;
-        console.log(result);
-        alert(result);
-        return playerScore += 1;
+        playerScore ++;
+        if(playerScore == 5){
+            result = `You won the game!`;
+            disableButtons();
+        }
     }
     else if((compareString(playerSelection, "paper") == 0)&&(compareString(computerSelection, "scissors") == 0))
     {
         result = `You lose! ${computerSelection} beats ${playerSelection}.`;
-        console.log(result);
-        alert(result);
-        return computerScore += 1;
+        computerScore ++;
+        if(computerScore == 5){
+            result = `You lost the game!  Computer wins.`;
+            disableButtons();
+        }
     }
     else if((compareString(playerSelection, "scissors") == 0)&&(compareString(computerSelection, "paper") == 0))
     {
         result = `You win! ${playerSelection} beats ${computerSelection}.`;        
-        console.log(result);
-        alert(result);
-        return playerScore += 1;
+        playerScore ++;
+        if(playerScore == 5){
+            result = `You won the game!`;
+            disableButtons();
+        }
     }
     else if((compareString(playerSelection, "scissors") == 0)&&(compareString(computerSelection, "rock") == 0))
     {
         result = `You lose! ${computerSelection} beats ${playerSelection}.`;
-        console.log(result);
-        alert(result);        
-        return computerScore += 1;
+        computerScore ++;
+        if(computerScore == 5){
+            result = `You lost the game!  Computer wins.`;
+            disableButtons();
+        }
     }
     else
     {
         result = `It's a draw! ${computerSelection} draws with ${playerSelection}.`;
-        console.log(result);
-        alert(result);
-        return computerScore +=0;  
     }
+
+    //Increment the round count
+    round++
+
+    //Display round count
+    displayRound.textContent = `Round number ${round}.`
+
+    // Display the result
+    displayResult.textContent = `You chose ${playerSelection}. Computer chose ${computerSelection}. ${result}`;
+    displayScore.textContent = `Player score: ${playerScore}.  Computer score: ${computerScore}`;
 
 }
 
-//console.log(playRound(playerSelection, computerSelection));
+
+
 
 
 //function which plays 5 rounds.
